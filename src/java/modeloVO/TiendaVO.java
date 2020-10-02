@@ -11,20 +11,22 @@ package modeloVO;
  */
 public class TiendaVO {
     
-    private String tie_id, tie_nombre, tie_direccion, tie_telefono, tie_horario_apertura, tie_horario_cierre, f_bar_id;
+    private String tie_id, tie_nombre, tie_direccion, tie_telefono, tie_horario_apertura, tie_horario_cierre, f_usu_id, f_bar_id;
 
     
     public TiendaVO() {  
+    
     }
     
     
-    public TiendaVO(String tie_id, String tie_nombre, String tie_direccion, String tie_telefono, String tie_horario_apertura, String tie_horario_cierre, String f_bar_id) {
+    public TiendaVO(String tie_id, String tie_nombre, String tie_direccion, String tie_telefono, String tie_horario_apertura, String tie_horario_cierre,String f_usu_id, String f_bar_id) {
         this.tie_id = tie_id;
         this.tie_nombre = tie_nombre;
         this.tie_direccion = tie_direccion;
         this.tie_telefono = tie_telefono;
         this.tie_horario_apertura = tie_horario_apertura;
         this.tie_horario_cierre = tie_horario_cierre;
+         this.f_bar_id = f_usu_id;
         this.f_bar_id = f_bar_id;
     }
     
@@ -84,6 +86,14 @@ public class TiendaVO {
 
     public void setF_bar_id(String f_bar_id) {
         this.f_bar_id = f_bar_id;
+    }
+
+    public String getF_usu_id() {
+        return f_usu_id;
+    }
+
+    public void setF_usu_id(String f_usu_id) {
+        this.f_usu_id = f_usu_id;
     }
     
 

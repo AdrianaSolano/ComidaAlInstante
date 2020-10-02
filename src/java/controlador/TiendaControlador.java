@@ -48,40 +48,43 @@ public class TiendaControlador extends HttpServlet {
         String tie_telefono = request.getParameter("textTelefono");
         String tie_horario_apertura = request.getParameter("textHapertura");
         String tie_horario_cierre = request.getParameter("textHcierre");
-        String f_bar_id = request.getParameter("textBarrio");
+        String f_usu_id = request.getParameter("textUsuariof");
+        String f_bar_id = request.getParameter("textBarriof");
         
 
       
       
       // segundo: mandar datos al VO
   
-        TiendaVO tieVO = new TiendaVO(tie_id, tie_nombre, tie_direccion, tie_telefono, tie_horario_apertura, tie_horario_cierre, f_bar_id);
-        TiendaDAO tieDAO= new TiendaDAO(tieVO){
-
+         TiendaVO tieVO = new TiendaVO(tie_id, tie_nombre,tie_direccion, tie_telefono, tie_horario_apertura, tie_horario_cierre, f_usu_id, f_bar_id);
+         TiendaDAO tieDAO= new TiendaDAO(tieVO) {
+            
+             @Override
+            public boolean actualizarRegistro() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
         };
-     
-     
-        
-        
+         
+  
         switch(opcion) {
          
         case 1:  //agregar registro
           
              if  (tieDAO.agregarRegistro()) { 
-                 request.setAttribute("mensajeExito", "El Tienda se registro correctamente");
+                 request.setAttribute("mensajeExito", "La tienda se registro correctamente");
             } else{
-                 request.setAttribute("mensajeError", "El Tienda NO se registro correctamente");
+                 request.setAttribute("mensajeError", "La Tienda no se registro correctamente");
                  
              }
-              request.getRequestDispatcher("login.jsp").forward(request, response);
+              request.getRequestDispatcher("registrar.jsp").forward(request, response);
               break;
               
         case 2:  //actualizar registro
                     
              if  (tieDAO.actualizarRegistro()) { 
-                 request.setAttribute("mensajeExito", "El Tienda se actualizo correctamente");
+                 request.setAttribute("mensajeExito", "La tienda se actualizo correctamente");
             } else{
-                 request.setAttribute("mensajeError", "El Tienda  NO se actualizo correctamente");
+                 request.setAttribute("mensajeError", "Ll tienda  NO se actualizo correctamente");
                  
              }
              break;

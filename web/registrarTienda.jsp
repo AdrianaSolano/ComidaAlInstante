@@ -1,13 +1,16 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Driver"%>
 <!DOCTYPE html>
 <html lang="en">
 
 
-<!-- Mirrored from slidesigma.com/themes/html/costic/pages/apps/to-do-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Feb 2020 13:15:35 GMT -->
+<!-- Mirrored from slidesigma.com/themes/html/costic/pages/form/form-wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Feb 2020 13:13:41 GMT -->
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Costic Dashboard</title>
+   <link rel="icon" type="image/png" href="../../assets/img/people/00.png">
+  <title>Comida al instante</title>
   <!-- Iconic Fonts -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="../../vendors/iconic-fonts/flat-icons/flaticon.css">
@@ -19,11 +22,11 @@
   <!-- Costic styles -->
   <link href="../../assets/css/style.css" rel="stylesheet">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.ico">
+  
 </head>
 
 <body class="ms-body ms-aside-left-open ms-primary-theme ms-has-quickbar">
- 
+
   <!-- Preloader -->
   <div id="preloader-wrap">
     <div class="spinner spinner-8">
@@ -49,35 +52,34 @@
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
       <a class="pl-0 ml-0 text-center" href="../../index.html">
-        <img src="../../assets/img/costic/costic-logo-216x62.png" alt="logo">
+        <img src="../../assets/img/costic/x.png" alt="logo">
       </a>
     </div>
     <!-- Navigation -->
     <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
       <!-- Dashboard -->
       <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard"> <span><i class="material-icons fs-16">dashboard</i>Dashboard </span>
+        <a href="assets/index.html"> <span><i class="fas fa-th fs-16"></i>Inicio</span>
         </a>
-        <ul id="dashboard" class="collapse" aria-labelledby="dashboard" data-parent="#side-nav-accordion">
-          <li> <a href="../../index.html">Costic</a> 
-          </li>
-        </ul>
       </li>
-      <!-- /Dashboard -->
-      <!-- product -->
+     
       <li class="menu-item">
-        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#product" aria-expanded="false" aria-controls="product"> <span><i class="fa fa-archive fs-16"></i>Menus </span>
+        <a href="pages/product/productcata.html"> <span><i class="fas fa-shopping-cart fs-16"></i>Restaurantes</span>
+        </a>
+          <a href="pages/product/productgrid.html"> <span><i class="fas fa-shopping-cart fs-16"></i>Tiendas</span>
+        </a>
+          <li class="menu-item"> 
+              <a href="#" class="has-chevron" data-toggle="collapse" data-target="#product" aria-expanded="false" aria-controls="invoice"> <span><i class="fas fa-file-invoice fs-16"></i>menu </span>
         </a>
         <ul id="product" class="collapse" aria-labelledby="product" data-parent="#side-nav-accordion">
-          <li> <a href="../product/productcata.html">Product Catalogue</a> 
+           
+          <li> <a href="pages/product/productlist.html">Menu List</a>
           </li>
-          <li> <a href="../product/productlist.html">Product List</a> 
+          <li> <a href="pages/product/productgrid.html">Menu Grid</a>
           </li>
-          <li> <a href="../product/productgrid.html">Product Grid</a> 
+          <li> <a href="pages/product/addproduct.html">Add Product</a>
           </li>
-          <li> <a href="../product/addproduct.html">Add Product</a> 
-          </li>
-          <li> <a href="../product/productdetail.html">Product Detail</a> 
+          <li> <a href="pages/product/productdetail.html">Product Detail</a>
           </li>
         </ul>
       </li>
@@ -99,9 +101,9 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#invoice" aria-expanded="false" aria-controls="invoice"> <span><i class="fas fa-file-invoice fs-16"></i>Invoice </span>
         </a>
         <ul id="invoice" class="collapse" aria-labelledby="invoice" data-parent="#side-nav-accordion">
-          <li> <a href="../invoice/invoicedetail.html">Invoice Detail</a> 
+          <li> <a href="../invoice/invoicedetail.html">Invoice Detail</a>
           </li>
-          <li> <a href="../invoice/invoicelist.html">Invoice List</a> 
+          <li> <a href="../invoice/invoicelist.html">Invoice List</a>
           </li>
         </ul>
       </li>
@@ -111,11 +113,11 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#customer" aria-expanded="false" aria-controls="customer"> <span><i class="fas fa-user-friends fs-16"></i>Customers </span>
         </a>
         <ul id="customer" class="collapse" aria-labelledby="customer" data-parent="#side-nav-accordion">
-          <li> <a href="../customer/customersreview.html">Customers Review</a> 
+          <li> <a href="../customer/customersreview.html">Customers Review</a>
           </li>
-          <li> <a href="../customer/customerlist.html">Customers List</a> 
+          <li> <a href="../customer/customerlist.html">Customers List</a>
           </li>
-          <li> <a href="../customer/social.html">Social Activity</a> 
+          <li> <a href="../customer/social.html">Social Activity</a>
           </li>
         </ul>
       </li>
@@ -135,27 +137,27 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#basic-elements" aria-expanded="false" aria-controls="basic-elements"> <span><i class="material-icons fs-16">filter_list</i>Basic UI Elements</span>
         </a>
         <ul id="basic-elements" class="collapse" aria-labelledby="basic-elements" data-parent="#side-nav-accordion">
-          <li> <a href="../ui-basic/accordions.html">Accordions</a> 
+          <li> <a href="../ui-basic/accordions.html">Accordions</a>
           </li>
-          <li> <a href="../ui-basic/alerts.html">Alerts</a> 
+          <li> <a href="../ui-basic/alerts.html">Alerts</a>
           </li>
-          <li> <a href="../ui-basic/buttons.html">Buttons</a> 
+          <li> <a href="../ui-basic/buttons.html">Buttons</a>
           </li>
-          <li> <a href="../ui-basic/breadcrumbs.html">Breadcrumbs</a> 
+          <li> <a href="../ui-basic/breadcrumbs.html">Breadcrumbs</a>
           </li>
-          <li> <a href="../ui-basic/badges.html">Badges</a> 
+          <li> <a href="../ui-basic/badges.html">Badges</a>
           </li>
-          <li> <a href="../ui-basic/cards.html">Cards</a> 
+          <li> <a href="../ui-basic/cards.html">Cards</a>
           </li>
-          <li> <a href="../ui-basic/progress-bars.html">Progress Bars</a> 
+          <li> <a href="../ui-basic/progress-bars.html">Progress Bars</a>
           </li>
-          <li> <a href="../ui-basic/preloaders.html">Pre-loaders</a> 
+          <li> <a href="../ui-basic/preloaders.html">Pre-loaders</a>
           </li>
-          <li> <a href="../ui-basic/pagination.html">Pagination</a> 
+          <li> <a href="../ui-basic/pagination.html">Pagination</a>
           </li>
-          <li> <a href="../ui-basic/tabs.html">Tabs</a> 
+          <li> <a href="../ui-basic/tabs.html">Tabs</a>
           </li>
-          <li> <a href="../ui-basic/typography.html">Typography</a> 
+          <li> <a href="../ui-basic/typography.html">Typography</a>
           </li>
         </ul>
       </li>
@@ -165,19 +167,19 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#advanced-elements" aria-expanded="false" aria-controls="advanced-elements"> <span><i class="material-icons fs-16">code</i>Advanced UI Elements</span>
         </a>
         <ul id="advanced-elements" class="collapse" aria-labelledby="advanced-elements" data-parent="#side-nav-accordion">
-          <li> <a href="../ui-advanced/draggables.html">Draggables</a> 
+          <li> <a href="../ui-advanced/draggables.html">Draggables</a>
           </li>
-          <li> <a href="../ui-advanced/sliders.html">Sliders</a> 
+          <li> <a href="../ui-advanced/sliders.html">Sliders</a>
           </li>
-          <li> <a href="../ui-advanced/modals.html">Modals</a> 
+          <li> <a href="../ui-advanced/modals.html">Modals</a>
           </li>
-          <li> <a href="../ui-advanced/rating.html">Rating</a> 
+          <li> <a href="../ui-advanced/rating.html">Rating</a>
           </li>
-          <li> <a href="../ui-advanced/tour.html">Tour</a> 
+          <li> <a href="../ui-advanced/tour.html">Tour</a>
           </li>
-          <li> <a href="../ui-advanced/cropper.html">Cropper</a> 
+          <li> <a href="../ui-advanced/cropper.html">Cropper</a>
           </li>
-          <li> <a href="../ui-advanced/range-slider.html">Range Slider</a> 
+          <li> <a href="../ui-advanced/range-slider.html">Range Slider</a>
           </li>
         </ul>
       </li>
@@ -191,13 +193,13 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#form-elements" aria-expanded="false" aria-controls="form-elements"> <span><i class="material-icons fs-16">input</i>Form Elements</span>
         </a>
         <ul id="form-elements" class="collapse" aria-labelledby="form-elements" data-parent="#side-nav-accordion">
-          <li> <a href="../form/form-elements.html">Form Elements</a> 
+          <li> <a href="form-elements.html">Form Elements</a>
           </li>
-          <li> <a href="../form/form-layout.html">Form Layouts</a> 
+          <li> <a href="form-layout.html">Form Layouts</a>
           </li>
-          <li> <a href="../form/form-validation.html">Form Validation</a> 
+          <li> <a href="form-validation.html">Form Validation</a>
           </li>
-          <li> <a href="../form/form-wizard.html">Form Wizard</a> 
+          <li> <a href="form-wizard.html">Form Wizard</a>
           </li>
         </ul>
       </li>
@@ -207,9 +209,9 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#charts" aria-expanded="false" aria-controls="charts"> <span><i class="material-icons fs-16">equalizer</i>Charts</span>
         </a>
         <ul id="charts" class="collapse" aria-labelledby="charts" data-parent="#side-nav-accordion">
-          <li> <a href="../charts/chartjs.html">Chart JS</a> 
+          <li> <a href="../charts/chartjs.html">Chart JS</a>
           </li>
-          <li> <a href="../charts/morris-charts.html">Morris Chart</a> 
+          <li> <a href="../charts/morris-charts.html">Morris Chart</a>
           </li>
         </ul>
       </li>
@@ -219,9 +221,9 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#tables" aria-expanded="false" aria-controls="tables"> <span><i class="material-icons fs-16">tune</i>Tables</span>
         </a>
         <ul id="tables" class="collapse" aria-labelledby="tables" data-parent="#side-nav-accordion">
-          <li> <a href="../tables/basic-tables.html">Basic Tables</a> 
+          <li> <a href="../tables/basic-tables.html">Basic Tables</a>
           </li>
-          <li> <a href="../tables/data-tables.html">Data tables</a> 
+          <li> <a href="../tables/data-tables.html">Data tables</a>
           </li>
         </ul>
       </li>
@@ -231,9 +233,9 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#popups" aria-expanded="false" aria-controls="popups"> <span><i class="material-icons fs-16">message</i>Popups</span>
         </a>
         <ul id="popups" class="collapse" aria-labelledby="popups" data-parent="#side-nav-accordion">
-          <li> <a href="../popups/sweet-alerts.html">Sweet Alerts</a> 
+          <li> <a href="../popups/sweet-alerts.html">Sweet Alerts</a>
           </li>
-          <li> <a href="../popups/toast.html">Toast</a> 
+          <li> <a href="../popups/toast.html">Toast</a>
           </li>
         </ul>
       </li>
@@ -243,11 +245,11 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#icons" aria-expanded="false" aria-controls="icons"> <span><i class="material-icons fs-16">border_color</i>Icons</span>
         </a>
         <ul id="icons" class="collapse" aria-labelledby="icons" data-parent="#side-nav-accordion">
-          <li> <a href="../icons/fontawesome.html">Fontawesome</a> 
+          <li> <a href="../icons/fontawesome.html">Fontawesome</a>
           </li>
-          <li> <a href="../icons/flaticons.html">Flaticons</a> 
+          <li> <a href="../icons/flaticons.html">Flaticons</a>
           </li>
-          <li> <a href="../icons/materialize.html">Materialize</a> 
+          <li> <a href="../icons/materialize.html">Materialize</a>
           </li>
         </ul>
       </li>
@@ -257,9 +259,9 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#maps" aria-expanded="false" aria-controls="maps"> <span><i class="material-icons fs-16">map</i>Maps</span>
         </a>
         <ul id="maps" class="collapse" aria-labelledby="maps" data-parent="#side-nav-accordion">
-          <li> <a href="../maps/google-maps.html">Google Maps</a> 
+          <li> <a href="../maps/google-maps.html">Google Maps</a>
           </li>
-          <li> <a href="../maps/vector-maps.html">Vector Maps</a> 
+          <li> <a href="../maps/vector-maps.html">Vector Maps</a>
           </li>
         </ul>
       </li>
@@ -269,11 +271,11 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#bonuspages" aria-expanded="false" aria-controls="bonuspages"> <span><i class="material-icons fs-16">insert_drive_file</i> Bonus Pages</span>
         </a>
         <ul id="bonuspages" class="collapse" aria-labelledby="bonuspages" data-parent="#side-nav-accordion">
-                    <li> <a href="../dashboard/web-analytics.html"> Web Analytics </a> 
+          <li> <a href="../dashboard/web-analytics.html"> Web Analytics </a>
           </li>
-          <li> <a href="../dashboard/project-management.html">Stock Management</a> 
+          <li> <a href="../dashboard/project-management.html">Stock Management</a>
           </li>
-          <li> <a href="../dashboard/client-management.html">Client Management</a> 
+          <li> <a href="../dashboard/client-management.html">Client Management</a>
           </li>
         </ul>
       </li>
@@ -285,29 +287,29 @@
         <ul id="pages" class="collapse" aria-labelledby="pages" data-parent="#side-nav-accordion">
           <li class="menu-item"> <a href="#" class="has-chevron" data-toggle="collapse" data-target="#authentication" aria-expanded="false" aria-controls="authentication">Authentication</a>
             <ul id="authentication" class="collapse" aria-labelledby="authentication" data-parent="#pages">
-              <li> <a href="../prebuilt-pages/default-login.html">Default Login</a> 
+              <li> <a href="../prebuilt-pages/default-login.html">Default Login</a>
               </li>
-              <li> <a href="../prebuilt-pages/modal-login.html">Modal Login</a> 
+              <li> <a href="../prebuilt-pages/modal-login.html">Modal Login</a>
               </li>
-              <li> <a href="../prebuilt-pages/default-register.html">Default Registration</a> 
+              <li> <a href="../prebuilt-pages/default-register.html">Default Registration</a>
               </li>
-              <li> <a href="../prebuilt-pages/modal-register.html">Modal Registration</a> 
+              <li> <a href="../prebuilt-pages/modal-register.html">Modal Registration</a>
               </li>
-              <li> <a href="../prebuilt-pages/lock-screen.html">Lock Screen</a> 
+              <li> <a href="../prebuilt-pages/lock-screen.html">Lock Screen</a>
               </li>
             </ul>
           </li>
-          <li> <a href="../prebuilt-pages/coming-soon.html">Coming Soon</a> 
+          <li> <a href="../prebuilt-pages/coming-soon.html">Coming Soon</a>
           </li>
-          <li> <a href="../prebuilt-pages/error.html">Error Page</a> 
+          <li> <a href="../prebuilt-pages/error.html">Error Page</a>
           </li>
-          <li class="menu-item"> <a href="../prebuilt-pages/faq.html"> FAQ </a> 
+          <li class="menu-item"> <a href="../prebuilt-pages/faq.html"> FAQ </a>
           </li>
-          <li class="menu-item"> <a href="../prebuilt-pages/portfolio.html"> Portfolio </a> 
+          <li class="menu-item"> <a href="../prebuilt-pages/portfolio.html"> Portfolio </a>
           </li>
-          <li class="menu-item"> <a href="../prebuilt-pages/user-profile.html"> User Profile </a> 
+          <li class="menu-item"> <a href="../prebuilt-pages/user-profile.html"> User Profile </a>
           </li>
-          <li class="menu-item"> <a href="../prebuilt-pages/invoice.html"> Invoice </a> 
+          <li class="menu-item"> <a href="../prebuilt-pages/invoice.html"> Invoice </a>
           </li>
         </ul>
       </li>
@@ -317,11 +319,11 @@
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#apps" aria-expanded="false" aria-controls="apps"> <span><i class="material-icons fs-16">phone_iphone</i>Apps</span>
         </a>
         <ul id="apps" class="collapse" aria-labelledby="apps" data-parent="#side-nav-accordion">
-          <li> <a href="chat.html">Chat</a> 
+          <li> <a href="../apps/chat.html">Chat</a>
           </li>
-          <li> <a href="email.html">Email</a> 
+          <li> <a href="../apps/email.html">Email</a>
           </li>
-          <li> <a href="to-do-list.html">To-do List</a> 
+          <li> <a href="../apps/to-do-list.html">To-do List</a>
           </li>
         </ul>
       </li>
@@ -334,7 +336,7 @@
       <ul class="nav nav-tabs tabs-bordered d-flex nav-justified mb-3" role="tablist">
         <li role="presentation" class="fs-12"><a href="#activityLog" aria-controls="activityLog" class="active" role="tab" data-toggle="tab"> Activity Log</a>
         </li>
-        
+
         <li>
           <button type="button" class="close ms-toggler text-center" data-target="#ms-recent-activity" data-toggle="slideRight"><span aria-hidden="true">&times;</span>
           </button>
@@ -359,7 +361,7 @@
               <span> <i class="material-icons">event</i>4 March, 2018</span>
               <p class="fs-14">Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam pellentesque felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
             </li>
-            <li>
+            <li> 
               <div class="ms-btn-icon btn-pill icon btn-warning"> <i class="flaticon-alert-1"></i>
               </div>
               <h6>Your payment is due</h6>
@@ -389,56 +391,7 @@
             </li>
           </ul> <a href="#" class="btn btn-primary d-block"> View All </a>
         </div>
-        <div role="tabpanel" class="tab-pane fade" id="recentPosts">
-          <h6>General Settings</h6>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Location Tracking</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox"> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Allow Notifications</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox"> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Allow Popups</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox" checked> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <h6>Log Settings</h6>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Enable Logging</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox" checked> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Audit Logs</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox"> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Error Logs</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox" checked> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <h6>Advanced Settings</h6>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Enable Logging</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox" checked> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Audit Logs</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox"> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-          <div class="ms-form-group"> <span class="ms-option-name fs-14">Error Logs</span>
-            <label class="ms-switch float-right">
-              <input type="checkbox" checked> <span class="ms-switch-slider round"></span>
-            </label>
-          </div>
-        </div>
+
       </div>
     </div>
   </aside>
@@ -496,7 +449,7 @@
               </a>
             </li>
             <li class="dropdown-divider"></li>
-            <li class="dropdown-menu-footer text-center"> <a href="email.html">Go to Inbox</a>
+            <li class="dropdown-menu-footer text-center"> <a href="../apps/email.html">Go to Inbox</a>
             </li>
           </ul>
         </li>
@@ -533,7 +486,7 @@
             </li>
           </ul>
         </li>
-        
+
         <li class="ms-nav-item ms-nav-user dropdown">
           <a href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img class="ms-user-img ms-img-round float-right" src="../../assets/img/costic/customer-6.jpg" alt="people">
@@ -544,20 +497,20 @@
             </li>
             <li class="dropdown-divider"></li>
             <li class="ms-dropdown-list">
-              <a class="media fs-14 p-2" href="../prebuilt-pages/user-profile.html"> <span><i class="flaticon-user mr-2"></i> Profile</span> 
+              <a class="media fs-14 p-2" href="../prebuilt-pages/user-profile.html"> <span><i class="flaticon-user mr-2"></i> Profile</span>
               </a>
-              <a class="media fs-14 p-2" href="email.html"> <span><i class="flaticon-mail mr-2"></i> Inbox</span>  <span class="badge badge-pill badge-info">3</span> 
+              <a class="media fs-14 p-2" href="../apps/email.html"> <span><i class="flaticon-mail mr-2"></i> Inbox</span>  <span class="badge badge-pill badge-info">3</span>
               </a>
-              <a class="media fs-14 p-2" href="../prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear mr-2"></i> Account Settings</span> 
+              <a class="media fs-14 p-2" href="../prebuilt-pages/user-profile.html"> <span><i class="flaticon-gear mr-2"></i> Account Settings</span>
               </a>
             </li>
             <li class="dropdown-divider"></li>
             <li class="dropdown-menu-footer">
-              <a class="media fs-14 p-2" href="../prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span> 
+              <a class="media fs-14 p-2" href="../prebuilt-pages/lock-screen.html"> <span><i class="flaticon-security mr-2"></i> Lock</span>
               </a>
             </li>
             <li class="dropdown-menu-footer">
-              <a class="media fs-14 p-2" href="../prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span> 
+              <a class="media fs-14 p-2" href="../prebuilt-pages/default-login.html"> <span><i class="flaticon-shut-down mr-2"></i> Logout</span>
               </a>
             </li>
           </ul>
@@ -572,235 +525,131 @@
     <div class="ms-content-wrapper">
       <div class="row">
         <div class="col-md-12">
-          <div class="ms-panel">
-            <div class="ms-panel-body">
-              <div class="row">
-                <div class="col-xl-3 col-md-12">
-                  <form class="ms-add-task-block-2">
-                    <div class="form-group d-flex m-0 fs-14 clearfix">
-                      <input type="text" class="form-control mr-2 fs-14 float-left" id="task-block-2" name="todo-block" placeholder="Add Task Block" value="">
-                      <button type="submit" class="ms-btn-icon bg-primary float-right"><i class="material-icons text-disabled">add</i>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-                <div class="col-xl-4 col-md-6">
-                  <ul class="ms-todo-options">
-                    <li><a href="#" class="ms-text-primary"> All Tasks </a>
-                    </li>
-                    <li><a href="#" class="text-disabled"> Completed </a>
-                    </li>
-                    <li><a href="#" class="text-disabled"> Archived </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-xl-5 col-md-6">
-                  <ul class="ms-todo-options ms-todo-nav">
-                    <li>
-                      <a href="#" class="ms-text-warning"> <i class="material-icons">playlist_add_check</i> Remove Completed</a>
-                    </li>
-                    <li>
-                      <a href="#" class="ms-text-danger"> <i class="material-icons">delete</i> Clear All</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row ms-todo-list">
-        <div class="col-xl-4 col-md-6 col-sm-12 ms-deletable">
-          <div class="ms-card">
-            <div class="ms-card-header clearfix">
-              <h6 class="ms-card-title">Task Block Title</h6>
-              <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> 
-              </button>
-            </div>
-            <div class="ms-card-body">
-              <ul class="ms-list ms-task-block">
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span> Task to do </span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span>Task to do</span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="ms-card-footer clearfix">
-              <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive</a>
-              <a href="#" class="text-disabled ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 ms-deletable">
-          <div class="ms-card">
-            <div class="ms-card-header clearfix">
-              <h6 class="ms-card-title">Task Block Title</h6>
-              <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> 
-              </button>
-            </div>
-            <div class="ms-card-body">
-              <ul class="ms-list ms-task-block">
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span> Task to do </span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span>Task to do</span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="ms-card-footer clearfix">
-              <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive</a>
-              <a href="#" class="text-disabled  ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 ms-deletable">
-          <div class="ms-card">
-            <div class="ms-card-header clearfix">
-              <h6 class="ms-card-title">Task Block Title</h6>
-              <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> 
-              </button>
-            </div>
-            <div class="ms-card-body">
-              <ul class="ms-list ms-task-block">
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span> Task to do </span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span>Task to do</span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="ms-card-footer clearfix">
-              <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive</a>
-              <a href="#" class="text-disabled  ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 ms-deletable">
-          <div class="ms-card">
-            <div class="ms-card-header clearfix">
-              <h6 class="ms-card-title">Task Block Title</h6>
-              <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> 
-              </button>
-            </div>
-            <div class="ms-card-body">
-              <ul class="ms-list ms-task-block">
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span> Task to do </span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span>Task to do</span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="ms-card-footer clearfix">
-              <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive</a>
-              <a href="#" class="text-disabled  ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 ms-deletable">
-          <div class="ms-card">
-            <div class="ms-card-header clearfix">
-              <h6 class="ms-card-title">Task Block Title</h6>
-              <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> 
-              </button>
-            </div>
-            <div class="ms-card-body">
-              <ul class="ms-list ms-task-block">
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span> Task to do </span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span>Task to do</span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="ms-card-footer clearfix">
-              <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive</a>
-              <a href="#" class="text-disabled  ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-4 col-md-6 col-sm-12 ms-deletable">
-          <div class="ms-card">
-            <div class="ms-card-header clearfix">
-              <h6 class="ms-card-title">Task Block Title</h6>
-              <button data-toggle="tooltip" data-placement="left" title="Add a Task to this block" class="ms-add-task-to-block ms-btn-icon float-right"> <i class="material-icons text-disabled">add</i> 
-              </button>
-            </div>
-            <div class="ms-card-body">
-              <ul class="ms-list ms-task-block">
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span> Task to do </span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-                <li class="ms-list-item ms-to-do-task ms-deletable">
-                  <label class="ms-checkbox-wrap ms-todo-complete">
-                    <input type="checkbox" value=""> <i class="ms-checkbox-check"></i>
-                  </label> <span>Task to do</span>
-                  <button type="submit" class="close"><i class="flaticon-trash ms-delete-trigger"> </i>
-                  </button>
-                </li>
-              </ul>
-            </div>
-            <div class="ms-card-footer clearfix">
-              <a href="#" class="text-disabled mr-2"> <i class="flaticon-archive"> </i> Archive</a>
-              <a href="#" class="text-disabled  ms-delete-trigger float-right"> <i class="flaticon-trash"> </i> Delete</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb pl-0">
+              <li class="breadcrumb-item"><a href="#"><i class="material-icons"></i>Inicio</a>
+              </li>
+             
+              <li class="breadcrumb-item active" aria-current="page">Restaurantes</li>
+            </ol>
+          </nav>
+            
+       
+    <div class="col-xl-6 col-md-12">
+           <div class="ms-panel ms-panel-fh">
+             <div class="ms-panel-header">
+               <h6>Registrar tienda</h6>
+             </div>
+             <div class="ms-panel-body ms-panel-fh">
+               <form action="Tienda" method="post"  class="ms-form-wizard ms-wizard-round style3-wizard">
+                 <h3></h3>
+                 
+                 <div class="ms-wizard-step">
+                   <div class="form-row">
+                        
+                     <div class="col-md-12 mb-3">
+                       <label>Nombre: </label>
+                       <div class="input-group">
+                         <input type="text" name="textNombre" class="form-control" autofocus required>
+                       </div>
+                     </div>
+                     <div class="col-md-12 mb-3">
+                       <label>Dirección</label>
+                       <div class="input-group">
+                         <input type="text" name="textDireccion" class="form-control" required >
+                       </div>
+                     </div>
+                   
+                   
+                     <div class="col-md-12 mb-3">
+                       <label>Teléfono</label>
+                       <div class="input-group">
+                         <input type="text" name="textTelefono" class="form-control" required >
+                       </div>
+                     </div>
+                     
+                     <div class="col-md-12 mb-3">
+                       <label>Horario apertura</label>
+                       <div class="input-group">
+                         <input type="text" name="textHapertura" class="form-control" required >
+                        </div>
+                     </div>
+                       
+                       
+                     <div class="col-md-12 mb-3">
+                       <label>Horario cierre</label>
+                       <div class="input-group">
+                         <input type="text" name="textHcierre" class="form-control" required >
+                       </div>
+                     </div>
+                       
+                        <div class="col-md-12 mb-3">
+                       <label>Id usuario</label>
+                       <div class="input-group">
+                         <input type="text" name="textUsuariof" class="form-control" required >
+                       </div>
+                     </div>
+
+                     
+                   <div class="col-md-12 mb-3">
+                       <label>Barrio</label>
+                       <div class="input-group">
+                         <select name="textBarriof" class="form-control" required>
+                           <option>Seleccione</option>
+                           <option value="1">Alfonso lópez</option>
+                           <option value="2">Santa Librada</option>
+                           <option value="3">Aurora</option>
+                           <option value="4">Tenerife</option>
+                           <option value="5">La fiscala</option>
+                           <option value="6">Marichuela</option>
+                           <option value="7">Yomasa</option>
+                           <option value="8">Danubio Azul</option>
+                           
+                         </select>
+                       </div>
+                     </div>
+                       -->
+                       
+                     <!--<div class="col-md-12 mb-3">
+                       <label>Subir imagen</label>
+                       <div class="input-group">
+                         <input type="file" name="fileImagen">
+                       </div>
+                     </div>
+                 -->
+                  
+                             
+          
+                  <div class="btn btn-primary item2">
+                      <button id="submit" href="productcata.html" class="ibtn">regresar</button>
+                      <button id="submit" type="submit" class="ibtn">guardar</button>
+                     <input type="hidden" value="1" name="opcion">
+                   
+             </div>     
+        
+            </form>
+                 
+                        <div style="background-color:rgba(77, 212, 81, 0.6) ; border-radius: 5px; padding: 6px; margin: 4px;">
+                        <%  if (request.getAttribute("mensajeError") !=null) { %>
+
+                        ${mensajeError}
+
+                       <% }else {  %>
+                       ${mensajeExito}
+
+                       <% } %>
+            
+                        </div>   
+                        </div> 
+                        </div> 
+                        </div> 
+           </div> 
+                       
+                       
+  
+
   <!-- MODALS -->
-    <!-- Quick bar -->
+      <!-- Quick bar -->
   <!-- Quick bar -->
   <aside id="ms-quick-bar" class="ms-quick-bar fixed ms-d-block-lg">
 
@@ -809,31 +658,31 @@
       <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Launch To-do-list" data-title="To-do-list">
         <a href="#qa-toDo" aria-controls="qa-toDo" role="tab" data-toggle="tab">
           <i class="flaticon-list"></i>
-          
+
         </a>
       </li>
       <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Launch Reminders" data-title="Reminders">
         <a href="#qa-reminder" aria-controls="qa-reminder" role="tab" data-toggle="tab">
           <i class="flaticon-bell"></i>
-          
+
         </a>
       </li>
       <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Launch Notes" data-title="Notes">
         <a href="#qa-notes" aria-controls="qa-notes" role="tab" data-toggle="tab">
           <i class="flaticon-pencil"></i>
-          
+
         </a>
       </li>
       <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Invite Members" data-title="Invite Members">
         <a href="#qa-invite" aria-controls="qa-invite" role="tab" data-toggle="tab">
           <i class="flaticon-share-1"></i>
-          
+
         </a>
       </li>
       <li class="ms-quick-bar-item ms-has-qa" role="presentation" data-toggle="tooltip" data-placement="left" title="Settings" data-title="Settings">
         <a href="#qa-settings" aria-controls="qa-settings" role="tab" data-toggle="tab">
           <i class="flaticon-gear"></i>
-          
+
         </a>
       </li>
     </ul>
@@ -841,7 +690,7 @@
 
       <a href="#">
         <i class="flaticon-hammer"></i>
-        
+
       </a>
 
     </div>
@@ -865,7 +714,7 @@
             <form class="ms-add-task-block">
               <div class="form-group mx-3 mt-0  fs-14 clearfix">
                 <input type="text" class="form-control fs-14 float-left" id="task-block" name="todo-block" placeholder="Add Task Block" value="">
-                <button type="submit" class="ms-btn-icon bg-primary float-right"><i class="material-icons text-disabled">add</i></button>
+                <button type="Enviar" class="ms-btn-icon bg-primary float-right"><i class="material-icons text-disabled">add</i></button>
               </div>
             </form>
 
@@ -952,140 +801,7 @@
           </div>
         </div>
 
-        <div role="tabpanel" class="tab-pane" id="qa-notes">
-
-          <ul class="ms-qa-options">
-            <li> <a href="#" data-toggle="modal" data-target="#notes-modal"> <i class="flaticon-sticky-note"></i> New Note </a> </li>
-            <li> <a href="#"> <i class="flaticon-excel"></i> Export to Excel </a> </li>
-          </ul>
-
-          <div class="ms-quickbar-container ms-scrollable">
-
-            <div class="ms-card ms-qa-card ms-deletable">
-              <div class="ms-card-header">
-                <h6 class="ms-card-title">Don't forget to check with the designer</h6>
-              </div>
-              <div class="ms-card-body">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna in faucibus venenatis. Etiam at dapibus neque,
-                  vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
-                </p>
-                <ul class="ms-note-members clearfix mb-0">
-                  <li class="ms-deletable"> <img src="../../assets/img/people/people-3.jpg" alt="member"> </li>
-                  <li class="ms-deletable"> <img src="../../assets/img/people/people-5.jpg" alt="member"> </li>
-                </ul>
-              </div>
-              <div class="ms-card-footer clearfix">
-
-                <div class="dropdown float-left">
-                  <a href="#" class="text-disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="flaticon-share-1"></i> Share
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-menu-header">
-                      <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Share With</span></h6>
-                    </li>
-                    <li class="dropdown-divider"></li>
-                    <li class="ms-scrollable ms-dropdown-list ms-members-list">
-                      <a class="media p-2" href="#">
-                        <div class="mr-2 align-self-center">
-                          <img src="../../assets/img/people/people-10.jpg" class="ms-img-round" alt="people">
-                        </div>
-                        <div class="media-body">
-                          <span>John Doe</span>
-                        </div>
-                      </a>
-                      <a class="media p-2" href="#">
-                        <div class="mr-2 align-self-center">
-                          <img src="../../assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
-                        </div>
-                        <div class="media-body">
-                          <span>Raymart Sandiago</span>
-                        </div>
-                      </a>
-                      <a class="media p-2" href="#">
-                        <div class="mr-2 align-self-center">
-                          <img src="../../assets/img/people/people-7.jpg" class="ms-img-round" alt="people">
-                        </div>
-                        <div class="media-body">
-                          <span>Heather Brown</span>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="ms-note-editor float-right">
-                  <a href="#" class="text-disabled mr-2" data-toggle="modal" data-target="#notes-modal"> <i class="flaticon-pencil"> </i> Edit </a>
-                  <a href="#" class="text-disabled  ms-delete-trigger"> <i class="flaticon-trash"> </i> Delete </a>
-                </div>
-
-              </div>
-            </div>
-
-            <div class="ms-card ms-qa-card ms-deletable">
-              <div class="ms-card-header">
-                <h6 class="ms-card-title">Perform the required unit tests</h6>
-              </div>
-              <div class="ms-card-body">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna in faucibus venenatis. Etiam at dapibus neque,
-                  vel varius metus. Pellentesque eget orci malesuada, venenatis magna et
-                </p>
-                <ul class="ms-note-members clearfix mb-0">
-                  <li class="ms-deletable"> <img src="../../assets/img/people/people-9.jpg" alt="member"> </li>
-                </ul>
-              </div>
-              <div class="ms-card-footer clearfix">
-
-                <div class="dropdown float-left">
-                  <a href="#" class="text-disabled" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="flaticon-share-1"></i> Share
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li class="dropdown-menu-header">
-                      <h6 class="dropdown-header ms-inline m-0"><span class="text-disabled">Share With</span></h6>
-                    </li>
-                    <li class="dropdown-divider"></li>
-                    <li class="ms-scrollable ms-dropdown-list ms-members-list">
-                      <a class="media p-2" href="#">
-                        <div class="mr-2 align-self-center">
-                          <img src="../../assets/img/people/people-10.jpg" class="ms-img-round" alt="people">
-                        </div>
-                        <div class="media-body">
-                          <span>John Doe</span>
-                        </div>
-                      </a>
-                      <a class="media p-2" href="#">
-                        <div class="mr-2 align-self-center">
-                          <img src="../../assets/img/people/people-9.jpg" class="ms-img-round" alt="people">
-                        </div>
-                        <div class="media-body">
-                          <span>Raymart Sandiago</span>
-                        </div>
-                      </a>
-                      <a class="media p-2" href="#">
-                        <div class="mr-2 align-self-center">
-                          <img src="../../assets/img/people/people-7.jpg" class="ms-img-round" alt="people">
-                        </div>
-                        <div class="media-body">
-                          <span>Heather Brown</span>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="ms-note-editor float-right">
-                  <a href="#" class="text-disabled mr-2" data-toggle="modal" data-target="#notes-modal"> <i class="flaticon-pencil"> </i> Edit </a>
-                  <a href="#" class="text-disabled  ms-delete-trigger"> <i class="flaticon-trash"> </i> Delete </a>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
+        
         <div role="tabpanel" class="tab-pane" id="qa-invite">
 
           <div class="ms-quickbar-container text-center ms-invite-member">
@@ -1209,7 +925,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-secondary shadow-none" data-dismiss="modal">Add Note</button>
+            <button type="butto n" class="btn btn-secondary shadow-none" data-dismiss="modal">Add Note</button>
           </div>
         </form>
       </div>
@@ -1225,6 +941,12 @@
   <script src="../../assets/js/jquery-ui.min.js">
   </script>
   <!-- Global Required Scripts End -->
+  <!-- Page Specific Scripts Start -->
+  <script src="../../assets/js/jquery.steps.min.js">
+  </script>
+  <script src="../../assets/js/form-wizard.js">
+  </script>
+  <!-- Page Specific Scripts End -->
   <!-- Costic core JavaScript -->
   <script src="../../assets/js/framework.js"></script>
   <!-- Settings -->
@@ -1232,5 +954,6 @@
 </body>
 
 
-<!-- Mirrored from slidesigma.com/themes/html/costic/pages/apps/to-do-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Feb 2020 13:15:35 GMT -->
+<!-- Mirrored from slidesigma.com/themes/html/costic/pages/form/form-wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Feb 2020 13:13:42 GMT -->
 </html>
+

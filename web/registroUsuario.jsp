@@ -89,14 +89,15 @@
                         </div>
                          
                         <div class="page-links">
-                            <a href="login.jsp">Iniciar Sesión</a><a href="registro.jsp" class="active">Registrarse</a>
+                            <a href="login.jsp">Iniciar Sesión</a><a href="registroUsuario.jsp" class="active">Registrarse</a>
                         </div>
+                        
                         <form action="Usuario" method="post" onsubmit="return validar_clave()" id="miformulario">
                     
                             <h6>Nombre:</h6>
                             <input type="text" name="textNombre" autofocus  minlength="3" maxlength="30" required>
                             <h6>Apellido:</h6>
-                            <input type="text" name="textApellido" autofocus  minlength="3" maxlength="30" required>
+                            <input type="text" name="textApellido" minlength="3" maxlength="30" required>
                             <h6>Telefono:</h6>
                             <input type="text" name="textTelefono" min="7" max="12" required>
                             <h6>Direccion:</h6>

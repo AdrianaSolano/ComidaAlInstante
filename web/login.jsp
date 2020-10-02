@@ -49,7 +49,7 @@
                         </div>
                         <div class="page-links">
                             <a href="login.jsp" class="active" >Iniciar Sesion</a>
-                            <a href="registro.jsp">Registrarse</a>
+                            <a href="registroUsuario.jsp">Registrarse</a>
                         </div>
 
 

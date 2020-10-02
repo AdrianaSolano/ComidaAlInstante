@@ -46,7 +46,7 @@
                             </a>
                         </div>
                         <div class="page-links">
-                            <a href="login.html" class="active">Login</a><a href="registro.html">Registrarse</a>
+                            <a href="login.html" class="active">Login</a><a href="registroUsuario.jsp">Registrarse</a>
                         </div>
 
 

@@ -30,7 +30,7 @@ public class UsuarioDAO extends Conexion  implements Crud{
     public String sql;
     
     // para que no explote
-    //usar los mismos nombres de variables para no teener problemas futuros
+    //usar los mismos nombres de variables para no tener problemas futuros
     public String usu_id="", usu_nombre="", usu_apellido="", usu_clave="", usu_correo="", usu_telefono="", usu_direccion="", f_rol_id="";        ;
 
     
@@ -67,7 +67,7 @@ public class UsuarioDAO extends Conexion  implements Crud{
             sql="insert into usuarios values(null, ?,?,?,?,?,?,?)";
             puente =conexion.prepareStatement(sql);
             
-            //esto es por segurida, para que no inyecten datos 
+           
             puente.setString(1,  usu_nombre);
             puente.setString(2,  usu_apellido);
             puente.setString(3,  usu_clave);
